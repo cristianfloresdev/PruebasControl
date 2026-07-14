@@ -83,8 +83,6 @@ public class ProductoServiceImpl implements ProductoService
     public void eliminar(Long id)
     {
         Producto producto = buscarOFallar(id);
-        // Soft delete: en un e-commerce real casi nunca borras un producto de
-        // verdad (puede estar referenciado en pedidos pasados). Lo desactivas.
         producto.setActivo(false);
         productoRepository.save(producto);
     }

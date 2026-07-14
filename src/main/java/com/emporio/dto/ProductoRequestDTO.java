@@ -2,7 +2,6 @@ package com.emporio.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +22,6 @@ public class ProductoRequestDTO
     private String descripcion;
 
     @NotNull(message = "El precio es obligatorio")
-    @Positive(message = "El precio debe ser mayor a 0")
     private BigDecimal precio;
 
     @NotNull(message = "El stock es obligatorio")

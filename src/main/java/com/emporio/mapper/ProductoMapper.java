@@ -5,10 +5,8 @@ import com.emporio.model.Producto;
 
 public class ProductoMapper
 {
-
     private ProductoMapper()
     {
-        // clase utilitaria, no se instancia
     }
 
     public static ProductoResponseDTO toResponseDTO(Producto producto)
@@ -21,7 +19,7 @@ public class ProductoMapper
                 .stock(producto.getStock())
                 .activo(producto.getActivo())
                 .categoriaId(producto.getCategoria().getId())
-                .categoriaNombre(producto.getCategoria().getNombre())
+                .categoriaNombre(producto.getCategoria().getDescripcion())
                 .build();
     }
 }
