@@ -19,7 +19,7 @@ public class ProductoMapper
                 .stock(producto.getStock())
                 .activo(producto.getActivo())
                 .categoriaId(producto.getCategoria().getId())
-                .categoriaNombre(producto.getCategoria().getDescripcion())
+                .categoriaNombre(producto.getCategoria().getNombre())
                 .build();
     }
 }
