@@ -30,6 +30,7 @@ public class ProductoServiceImpl implements ProductoService
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "No existe la categoria con id " + dto.getCategoriaId()));
 
+
         Producto producto = Producto.builder()
                 .nombre(dto.getNombre())
                 .descripcion(dto.getDescripcion())

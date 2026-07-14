@@ -22,7 +22,9 @@ public class ProductoRequestDTO
     private String descripcion;
 
     @NotNull(message = "El precio es obligatorio")
+    @PositiveOrZero(message = "El precio no puede ser negativo")
     private BigDecimal precio;
+
 
     @NotNull(message = "El stock es obligatorio")
     @PositiveOrZero(message = "El stock no puede ser negativo")
