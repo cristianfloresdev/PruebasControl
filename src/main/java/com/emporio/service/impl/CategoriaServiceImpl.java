@@ -2,9 +2,12 @@ package com.emporio.service.impl;
 
 import com.emporio.dto.CategoriaRequestDTO;
 import com.emporio.dto.CategoriaResponseDTO;
+import com.emporio.dto.ProductoResponseDTO;
 import com.emporio.mapper.CategoriaMapper;
+import com.emporio.mapper.ProductoMapper;
 import com.emporio.model.Categoria;
 import com.emporio.repository.CategoriaRepository;
+import com.emporio.repository.ProductoRepository;
 import com.emporio.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,7 @@ import java.util.List;
 public class CategoriaServiceImpl implements CategoriaService
 {
     private final CategoriaRepository categoriaRepository;
+    private final ProductoRepository productoRepository;
 
     @Override
     @Transactional
@@ -40,4 +44,5 @@ public class CategoriaServiceImpl implements CategoriaService
                 .map(CategoriaMapper::toResponseDTO)
                 .toList();
     }
+
 }

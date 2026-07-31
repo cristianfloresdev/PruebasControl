@@ -16,4 +16,6 @@ public interface ProductoService
     ProductoResponseDTO actualizar(Long id, ProductoRequestDTO dto);
 
     void eliminar(Long id);
+
+    List<ProductoResponseDTO> filtrarPorCategoria(Long categoriaId);
 }

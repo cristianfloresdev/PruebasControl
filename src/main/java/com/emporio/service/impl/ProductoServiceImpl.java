@@ -94,4 +94,19 @@ public class ProductoServiceImpl implements ProductoService
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "No existe el producto con id " + id));
     }
+
+    @Override
+    public List<ProductoResponseDTO> filtrarPorCategoria(Long categoriaId)
+    {
+        //Validamos que la categoria realmente exista
+        if(!categoriaRepository.existsById(categoriaId))
+        {
+            throw new ResourceNotFoundException("No existe el categoria con id " + categoriaId);
+        }
+        //Buscamos los productos y los convertimos a DTO
+        return productoRepository.findByCategoriaId(categoriaId)
+                .stream()
+                .map(ProductoMapper::toResponseDTO)
+                .toList();
+    }
 }
