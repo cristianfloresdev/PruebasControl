@@ -18,4 +18,7 @@ public interface ProductoService
     void eliminar(Long id);
 
     List<ProductoResponseDTO> filtrarPorCategoria(Long categoriaId);
+
+    //Asi ignoramos las mayusculas
+    List<ProductoResponseDTO> buscarPorNombre(String nombre);
 }

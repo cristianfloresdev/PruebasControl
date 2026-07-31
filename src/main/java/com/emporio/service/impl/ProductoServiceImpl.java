@@ -95,6 +95,7 @@ public class ProductoServiceImpl implements ProductoService
                         "No existe el producto con id " + id));
     }
 
+    //Filtrado por categoria
     @Override
     public List<ProductoResponseDTO> filtrarPorCategoria(Long categoriaId)
     {
@@ -106,6 +107,19 @@ public class ProductoServiceImpl implements ProductoService
         //Buscamos los productos y los convertimos a DTO
         return productoRepository.findByCategoriaId(categoriaId)
                 .stream()
+                .map(ProductoMapper::toResponseDTO)
+                .toList();
+    }
+
+    //Buscar producto por nombre
+    @Override
+    public List<ProductoResponseDTO> buscarPorNombre(String nombre)
+    {
+        // Usamos a JPA para que haga la búsqueda en la BD
+        List<Producto> productos = productoRepository.findByNombreContainingIgnoreCaseAndActivoTrue(nombre);
+
+        //Después del if, ya mapeamos la lista a dto
+        return productos.stream()
                 .map(ProductoMapper::toResponseDTO)
                 .toList();
     }

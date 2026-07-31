@@ -58,4 +58,12 @@ public class ProductoController
         List<ProductoResponseDTO> productos = productoService.filtrarPorCategoria(id);
         return ResponseEntity.ok(productos);
     }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<ProductoResponseDTO>> buscarPorNombre(@RequestParam String Nombre)
+    {
+        List<ProductoResponseDTO> productos = productoService.buscarPorNombre(Nombre);
+
+        return ResponseEntity.ok(productos);
+    }
 }
